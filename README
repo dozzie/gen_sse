@@ -1,0 +1,17 @@
+== mod_sse ==
+
+mod_sse is a module implementing server side of Server-Sent Events protocol
+(http://www.w3.org/TR/eventsource/) for HTTP server supplied by Erlang/OTP
+(inets/httpd).
+
+The module was written as a low-dependency proof of concept for something to
+be run behind nginx 1.2, later extended to be a little more generic
+(i.e. parametrized).
+
+== Contact ==
+
+mod_sse was written by Stanislaw Klekot <dozzie at jarowit.net>.
+The primary distribution point is <http://dozzie.jarowit.net/>, with
+a secondary address on GitHub <https://github.com/dozzie/mod_sse>.
+
+mod_sse is distributed under 3-clause BSD license.
