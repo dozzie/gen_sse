@@ -77,6 +77,8 @@
 
 -module(gen_sse_server).
 
+-export([behaviour_info/1]).
+
 -export_type([event/0, uri/0, http_header/0]).
 
 %%%---------------------------------------------------------------------------
