@@ -1,6 +1,33 @@
 %%%---------------------------------------------------------------------------
 %%% @doc
 %%%   `inets'/`httpd' request handler module.
+%%%
+%%%   == httpd configuration ==
+%%%
+%%%   Of course you need to include `mod_sse' in `modules' section in `httpd'
+%%%   config. With this done, you specify 3-tuples with URIs that are to be
+%%%   handled by `mod_sse':
+%%%
+%%%   ```
+%%%     HTTPDConfig = [
+%%%       % ...
+%%%       {modules, [mod_sse, ...]},
+%%%       % ...
+%%%       {sse, "/events", sse_handler},
+%%%       % ...
+%%%     ],
+%%%   '''
+%%%
+%%%   Such tuple has `sse' atom as the first element, then URI under which
+%%%   `mod_sse' operates, and a {@link gen_sse_server. callback module} that
+%%%   produces (or, most probably, receives) messages to be sent to connected
+%%%   clients.
+%%%
+%%%   The callback module is specified as either
+%%%   {@type @{module(), Args :: [term()]@}} or
+%%%   {@type module()} (`Args' default to `[]' in such case).
+%%%
+%%% @see gen_sse_server
 %%% @end
 %%%---------------------------------------------------------------------------
 
@@ -20,6 +47,9 @@
 -define(CONTENT_TYPE, "text/event-stream").
 
 %%%---------------------------------------------------------------------------
+
+%% @private
+%% @doc `httpd' handler.
 
 do(_ModData = #mod{config_db = ConfigTable, request_uri = URI,
                    data = RequestData, socket = Socket}) ->

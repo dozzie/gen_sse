@@ -4,7 +4,7 @@
 @title Server-Sent Event server implementation for inets/httpd.
 @doc
 
-mod_sse is a module implementing server side of
+`mod_sse' is a module implementing server side of
 <a href="http://www.w3.org/TR/eventsource/">Server-Sent Events protocol</a>
 for inets httpd server.
 
@@ -14,7 +14,17 @@ be run behind nginx 1.2, later extended to be a little more generic
 
 == Architecture ==
 
-<b>TODO</b>
+`mod_sse' comes as a module for `httpd', the HTTP server that comes with OTP
+and runs as `inets' service. You configure it in a typical way for `httpd'
+modules, adding `{sse, "/...", CallbackModule}' tuple to configuration list
+(see {@link mod_sse} for details). 
+
+`mod_sse' spawns {@link gen_sse_server} process for every connection, and this
+additional process is responsible for subscribing to event source of some
+sort and then receiving events. Those will be passed back to `mod_sse' and
+sent to the client. Note that events produced need to be ready to be sent
+through the wire, so any unicode string needs to be converted to bytes
+(possibly using `unicode:characters_to_binary(Data, unicode)').
 
 == Example usage ==
 

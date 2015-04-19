@@ -1,4 +1,5 @@
 %%%---------------------------------------------------------------------------
+%%% @private
 %%% @doc
 %%%   Supervisor for workers that receive events and pass them to appropriate
 %%%   httpd process.

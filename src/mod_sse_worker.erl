@@ -1,4 +1,5 @@
 %%%---------------------------------------------------------------------------
+%%% @private
 %%% @doc
 %%%   Process that receives events and passes them to httpd connection
 %%%   handler.
