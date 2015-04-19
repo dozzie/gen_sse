@@ -1,7 +1,7 @@
 {application, mod_sse, [
   {description, "Server sent events for inets/httpd"},
   {vsn, "0.0.0"}, % remember about `overview.edoc'
-  {registered, []},
+  {registered, [mod_sse_sup]},
   {applications, [kernel, stdlib]},
   {mod, {mod_sse_app, []}}, % callback module
   {env, []}
