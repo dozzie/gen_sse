@@ -28,7 +28,7 @@ through the wire, so any unicode string needs to be converted to bytes
 
 == Example usage ==
 
-For usage examples see documentation of {@link examples_inets},
-{@link examples_nginx}, and {@link examples_html} modules.
+For usage examples see documentation of {@link example_inets},
+{@link example_nginx}, and {@link example_html} modules.
 
 <!-- vim:set ft=edoc: -->
